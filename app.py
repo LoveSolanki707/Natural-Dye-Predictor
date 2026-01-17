@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
+import os
 from ai.sd_client import generate_image
 from logic.explanation import generate_explanation
-import os
 
 app = Flask(__name__)
 
@@ -16,11 +16,17 @@ def home():
         ingredient = request.form["ingredient"]
         placement = request.form["placement"]
 
+        uploaded_file = request.files.get("cloth_image")
+
         prompt = f"""
         A realistic {fabric} {cloth} naturally dyed using {ingredient} petals,
-        eco print pattern with {placement} placement,
-        soft organic texture, sustainable fashion, photorealistic
+        eco print style with {placement} placement,
+        soft organic texture, sustainable fashion
         """
+
+        # If user uploaded image, influence prompt (cloud-safe)
+        if uploaded_file and uploaded_file.filename != "":
+            prompt += ", based on the uploaded garment reference image"
 
         result = generate_image(prompt)
         explanation = generate_explanation(ingredient, placement)
