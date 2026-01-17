@@ -2,7 +2,7 @@ import replicate
 
 def generate_image(prompt):
     output = replicate.run(
-        "stability-ai/stable-diffusion",
+        "stability-ai/stable-diffusion-xl-base-1.0",
         input={
             "prompt": prompt,
             "num_outputs": 1,
@@ -10,4 +10,4 @@ def generate_image(prompt):
             "num_inference_steps": 30
         }
     )
-    return output[0]  # URL of generated image
+    return output[0]
