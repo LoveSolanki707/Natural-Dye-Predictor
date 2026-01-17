@@ -16,7 +16,7 @@ def home():
         ingredient = request.form["ingredient"]
         placement = request.form["placement"]
 
-        uploaded_file = request.files.get("cloth_image")
+        uploaded_image = request.files.get("cloth_image")
 
         prompt = f"""
         A realistic {fabric} {cloth} naturally dyed using {ingredient} petals,
@@ -24,8 +24,8 @@ def home():
         soft organic texture, sustainable fashion
         """
 
-        # If user uploaded image, influence prompt (cloud-safe)
-        if uploaded_file and uploaded_file.filename != "":
+        # If user uploaded an image, influence prompt
+        if uploaded_image and uploaded_image.filename != "":
             prompt += ", based on the uploaded garment reference image"
 
         result = generate_image(prompt)

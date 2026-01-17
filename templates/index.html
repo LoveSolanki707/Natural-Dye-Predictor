@@ -7,7 +7,15 @@
 
 <h2>Natural Dye Predictor</h2>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
+
+  <label>Upload Cloth Image (optional):</label><br>
+  <input type="file" name="cloth_image" accept="image/*"><br><br>
+
+  <label>Cloth Type:</label>
+  <select name="cloth">...</select>
+  ...
+
 
   <label>Cloth Type:</label>
   <select name="cloth">
