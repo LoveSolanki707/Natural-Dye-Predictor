@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Natural Dye Predictor</title>
+</head>
+<body>
+
+<h2>Natural Dye Predictor</h2>
+
+<form method="POST">
+
+  <label>Cloth Type:</label>
+  <select name="cloth">
+    <option value="t-shirt">T-Shirt</option>
+    <option value="hoodie">Hoodie</option>
+  </select><br><br>
+
+  <label>Fabric:</label>
+  <select name="fabric">
+    <option value="cotton">Cotton</option>
+    <option value="silk">Silk</option>
+  </select><br><br>
+
+  <label>Ingredient:</label>
+  <select name="ingredient">
+    <option value="rose">Rose</option>
+    <option value="leaf">Leaf</option>
+    <option value="marigold">Marigold</option>
+  </select><br><br>
+
+  <label>Placement:</label>
+  <select name="placement">
+    <option value="center">Center</option>
+    <option value="scattered">Scattered</option>
+  </select><br><br>
+
+  <button type="submit">Generate</button>
+
+</form>
+
+{% if result %}
+  <h3>Result</h3>
+  <img src="{{ result }}" width="400">
+{% endif %}
+
+{% if explanation %}
+  <p>{{ explanation }}</p>
+{% endif %}
+
+</body>
+</html>
