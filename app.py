@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from ai.sd_client import generate_image
-from logic.explanation import generate_explanationp
+from logic.explanation import generate_explanation
 
 app = Flask(__name__)
 
